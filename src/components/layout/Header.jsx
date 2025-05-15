@@ -2,6 +2,7 @@ import Logo from '../../assets/logo.png';
 import { LoggingButtons } from '../../auth/LoggingButtons.jsx';
 import { NavLink } from 'react-router-dom';
 
+
 /**
  * TODO: Ticket 3:
  * Implement authentication using Auth0
@@ -41,6 +42,7 @@ export default function Header() {
         <h1 className='text-4xl text-center'>
           Asylum Office Grant Rate Tracker
         </h1>
+        <p> The Asylum Office Grant Rate Tracker provides asylum seekers, researchers, policymakers, and the public and interactive tool to explore USCIS data on Asylum Office decisions</p>
       </div>
     </header>
   );
