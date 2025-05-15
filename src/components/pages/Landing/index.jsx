@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDownloadData } from '../../../hooks/useDownloadData.js';
 import {decodeBase64} from '../../../utils/decodeBase64.js';
 import barGraph from '../../../assets/bar-graph.png';
+import pieChart from '../../../assets/pie-chart.png';
+import lineGraph from '../../../assets/line-graph.png';
 /**
  * TODO: Ticket 1:
  * Implement structure and styles of the Landing page using Tailwind
@@ -35,11 +37,24 @@ export const LandingPage = () => {
     <div className='flex-c w-[100vw] secondary-c'>
       Landing Page
       <div>{'Type this into Canvas: ' + decodeBase64('VGltZTJDb2RlIQ==')}</div>
-      <img
-        src={barGraph}
-        alt='Bar Graph'
-        className='w-full h-auto'
-      />
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4'>
+        <img
+          src={barGraph}
+          alt='Bar Graph'
+          className='w-full h-auto'
+        />
+        <img
+          src={pieChart}
+          alt='Pie Chart'
+          className='w-full h-auto'
+        />
+        <img
+          src={lineGraph}
+          alt='Line Graph'
+          className='w-full h-auto'
+        />
+
+      </div>
     </div>
   );
 };

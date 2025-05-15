@@ -11,25 +11,36 @@ export default function Header() {
   const isAuthenticated = false;
 
   return (
-    <header className='flex w-[100%] primary-c justify-between px-14'>
-      <div className='flex justify-between'>
-        <NavLink to='https://www.humanrightsfirst.org/'>
-          <img className='w-[100px]' src={Logo} alt='HRF logo white' />
-        </NavLink>
-      </div>
-      <div className='flex items-center py-4 gap-16'>
-        <NavLink to='/' className='nav-btn'>
-          Home
-        </NavLink>
-        <NavLink to='/graphs' className='nav-btn'>
-          Graphs
-        </NavLink>
-        {isAuthenticated && (
-          <NavLink to='/profile' className='nav-btn'>
-            Profile
+    <header className='flex flex-col w-full primary-c px-14'>
+      {/* top row */}
+      <div className='flex justify-between w-full items-center'>
+        <div className='flex justify-between'>
+          <NavLink to='https://www.humanrightsfirst.org/'>
+            <img className='w-[100px]' src={Logo} alt='HRF logo white' />
           </NavLink>
-        )}
-        <LoggingButtons />
+        </div>
+        <div className='flex items-center py-4 gap-16'>
+          <NavLink to='/' className='nav-btn'>
+            Home
+          </NavLink>
+          <NavLink to='/graphs' className='nav-btn'>
+            Graphs
+          </NavLink>
+          {isAuthenticated && (
+            <NavLink to='/profile' className='nav-btn'>
+              Profile
+            </NavLink>
+          )}
+          <LoggingButtons />
+        </div>
+
+      </div>
+
+      {/* new row */}
+      <div className='w-full py-4 mt-4 text-white'>
+        <h1 className='text-4xl text-center'>
+          Asylum Office Grant Rate Tracker
+        </h1>
       </div>
     </header>
   );
