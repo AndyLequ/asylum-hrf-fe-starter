@@ -12,20 +12,31 @@ const AppContext = createContext({});
  * - Populate the graphs with the stored data
  */
 const useAppContextProvider = () => {
-  const [graphData, setGraphData] = useState(testData);
+  const [graphData, setGraphData] = useState();
   const [isDataLoading, setIsDataLoading] = useState(false);
 
   useLocalStorage({ graphData, setGraphData });
 
-  const getFiscalData = () => {
+  const baseURL = 'https://asylum-be.onrender.com'
+
+  const getFiscalData = async () => {
     // TODO: Replace this with functionality to retrieve the data from the fiscalSummary endpoint
-    const fiscalDataRes = testData;
+    // const response = await axios.get(`${baseURL}/fiscalSummary`);
+
+    // const fiscalDataRes = testData;
+    const response = await axios.get(`${baseURL}/fiscalSummary`); 
+    fiscalDataRes = response.data;
     return fiscalDataRes;
   };
 
   const getCitizenshipResults = async () => {
     // TODO: Replace this with functionality to retrieve the data from the citizenshipSummary endpoint
-    const citizenshipRes = testData.citizenshipResults;
+    // const testData = await axios.get(`${baseURL}/citizenshipSummary`);
+    // const citizenshipRes = testData.citizenshipResults;
+
+    const response = await axios.get(`${baseURL}/citizenshipSummary`);
+    const citizenshipRes = response.data;
+
     return citizenshipRes;
   };
 
@@ -35,6 +46,18 @@ const useAppContextProvider = () => {
 
   const fetchData = async () => {
     // TODO: fetch all the required data and set it to the graphData state
+    const [fiscalData, citizenshipData] = await Promise.all([
+      getFiscalData(),
+      getCitizenshipResults(),
+    ]);
+
+    const updatedGraphData = {
+      ...graphData,
+      yearResults: fiscalData.data,
+      citizenshipResults: citizenshipData,
+    };
+    setGraphData(updatedGraphData);
+    setIsDataLoading(false);
   };
 
   const clearQuery = () => {

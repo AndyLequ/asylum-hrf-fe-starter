@@ -1,7 +1,4 @@
-// import pieChart from '../../../assets/pie-chart.png';
-// import lineGraph from '../../../assets/line-graph.png';
-// import barGraph from '../../../assets/bar-graph.png';
-// import paperStack from '../../../assets/paper-stack.jpg';
+
 import { useNavigate } from 'react-router-dom';
 import { useDownloadData } from '../../../hooks/useDownloadData.js';
 import {decodeBase64} from '../../../utils/decodeBase64.js';
@@ -45,7 +42,7 @@ export const LandingPage = () => {
 
   return (
     <div className='flex-c w-[100vw] secondary-c'>
-      Landing Page
+      
       {/* <div>{'Type this into Canvas: ' + decodeBase64('VGltZTJDb2RlIQ==')}</div> */}
 
       {/* first row */}
@@ -65,7 +62,7 @@ export const LandingPage = () => {
           </div>
           {/* piechart */}
           <div className='w-full max-w-[400px] flex flex-col'>
-            <div className='h-[300px] flex-1'>
+            <div className='h-[300px] flex-1 p-16'>
               <img
                 src={pieChart}
                 alt='Pie Chart'
@@ -120,33 +117,35 @@ export const LandingPage = () => {
       {/* third row */}
       <div className='flex flex-col items-center mt-4'>
         <h1 className='text-5xl mb-4 p-8'>System Disparity Insights</h1>
-        <div className='flex gap-4'>
-          <div className='flex flex-col items-center mt-4'>
-            <h2 className='text-5xl'>
+        <div className='flex gap-4 w-full'>
+          <div className='flex flex-col items-center mt-4 flex-1 w-full min-w-0'>
+            <h2 className='text-5xl w-full'>
               36%
             </h2>
             <p className='p-8'>
               By the end of the Trump administration, the average asylum office grant rate had fallen 36% from an average of 44 percent in fiscal year 2016 to 28 percent in fiscal year 2020.
             </p>
           </div>
-          <div className='flex flex-col items-center mt-4'>
+          <div className='flex flex-col items-center mt-4 flex-1 w-full min-w-0'>
             <h2 className='text-5xl'>
               5%
             </h2>
-            <p className='p-8'>
+            <p className='p-8 w-full'>
               The New York asylum office grant rate dropped to 5 percent in fiscal year 2020.
             </p>
           </div>
-          <div className='flex flex-col items-center mt-4'>
+          <div className='flex flex-col items-center mt-4 flex-1 w-full min-w-0'>
             <h2 className='text-5xl'>
               6x Lower
             </h2>
-            <p className='p-8'>
+            <p className='p-8 w-full'>
               Between fiscal year 201 and 2020, the New York asylum office's average grant rate was 6 times lower than the San Francisco asylum office.
             </p>
           </div>
-
         </div>
+        <button className='bg-gray-400 text-white px-4 py-2 mt-8' onClick={handleReadMore}>
+          Read More
+        </button>
 
         {/* back to top button */}
         <button className='text-black px-4 py-2 mt-8' onClick={scrollToTop}>
