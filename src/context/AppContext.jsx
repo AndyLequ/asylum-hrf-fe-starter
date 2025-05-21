@@ -12,7 +12,10 @@ const AppContext = createContext({});
  * - Populate the graphs with the stored data
  */
 const useAppContextProvider = () => {
-  const [graphData, setGraphData] = useState();
+  const [graphData, setGraphData] = useState({
+    yearResults: [],
+    citizenshipResults: [],
+  });
   const [isDataLoading, setIsDataLoading] = useState(false);
 
   useLocalStorage({ graphData, setGraphData });
