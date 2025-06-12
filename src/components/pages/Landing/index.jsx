@@ -35,9 +35,8 @@ export const LandingPage = () => {
       }
     }, 10); // Adjust the interval time for smoothness
   };
-
   const handleReadMore = () => {
-    // TODO: navigate to the humanrightsfirst.org homepage
+    window.location.href = 'https://www.humanrightsfirst.org/';
   };
 
   return (
@@ -100,11 +99,11 @@ export const LandingPage = () => {
      
       {/* second row */}
       <div className='flex justify-evenly items-center w-full max-w-5xl mx-auto py-4 gap-4'>
-        <div className='w-1/4 min-w-[200px]'>
+        <div className='w-1/2'>
             <img
               src={paperStack}
               alt='Paper Stack'
-              className='w-full h-auto object-contain'
+              className='w-full h-auto object-cover rounded-lg'
               />
 
         </div>
