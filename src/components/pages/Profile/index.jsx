@@ -10,14 +10,24 @@
 import { useAuth0 } from '@auth0/auth0-react'
 
 
+
 const Profile = () => {
   // TODO: Replace these with functionality from Auth0
   const {
     user,
     isAuthenticated,
     isLoading,
+    logout
   } = useAuth0();
 
+  const handleLogging = () => {
+    if (isAuthenticated) {
+      // TODO: Add Logout functionality here:
+      console.log('Logout');
+      return logout({ logoutParams: {returnTo: window.location.origin} });
+
+    } 
+  };
   if (isLoading || !user) {
     return <div className='text-center p-4'>Loading...</div>;
   }
@@ -34,7 +44,7 @@ const Profile = () => {
       </div>
       <h2 className='text-3xl font-bold'>{user.name}</h2>
       <p className='p-4 text-gray-600/85'>{user.email}</p>
-      <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Logout</button>
+      <button onClick={handleLogging} className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Logout</button>
       </div>
   );
 };
