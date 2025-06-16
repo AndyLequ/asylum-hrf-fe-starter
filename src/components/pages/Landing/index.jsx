@@ -87,7 +87,7 @@ export const LandingPage = () => {
         {/* buttons, no working logic applied to them. */}
         <div className='flex gap-4 justify-center'>
 
-          <button className='bg-gray-400 text-white px-4 py-2 mt-8' onClick={scrollToTop}>
+          <button className='bg-gray-400 text-white px-4 py-2 mt-8' onClick={() => {navigate('/graphs')}}>
             View the Data
           </button>
           <button className='bg-gray-400 text-white px-4 py-2 mt-8' onClick={downloadCSV}>
